@@ -1,15 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/wait.h>
 #include "main.h"
 
 #define PROMPT "#cisfun$ "
 
 int main(void)
 {
-    char *input;
+    char *input,*const argv[] = {input, NULL};
     size_t bufsize = 0;
     pid_t pid;
 
@@ -28,7 +23,7 @@ int main(void)
             perror("fork error");
             exit(EXIT_FAILURE);
         } else if (pid == 0) {
-            if (execve(input, (char *const[]) { input, NULL }, NULL) == -1) {
+            if (execve(input, argv, NULL) == -1) {
                 perror("execve error");
             }
             exit(EXIT_FAILURE);

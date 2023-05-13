@@ -1,4 +1,4 @@
-include "main.h"
+#include "main.h"
 
 /**
  * execute_command - Executes a command.
@@ -56,3 +56,5 @@ int execute_command(char *command)
     free(args);
     return (0);
 }
+
+

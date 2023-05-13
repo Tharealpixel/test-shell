@@ -7,8 +7,18 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
-#define MAX_INPUT_LENGTH 1024
+#define BUFFER_SIZE 1024
 
-char *read_line(void);
+/*Shell 0.1*/
+int execute_command(char *command);
 
+
+/*functions to make the code look harder*/
+int _putchar(char c);
+size_t _strlen(char *s);
+int _strcmp(char *s1, char *s2);
+char *_strdup(char *s);
+char *_strtok(char *str, char *delim);
+char *_strcpy(char *dest, char *src);
+char *_strcat(char *dest, char *src);
 #endif
