@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/wait.h>
+#include "main.h"
 
 #define PROMPT "#cisfun$ "
 
@@ -19,7 +20,7 @@ int main(void)
             break;
         }
 
-        input[strcspn(input, "\n")] = '\0'; // remove trailing newline
+        input[strcspn(input, "\n")] = '\0';
 
         pid = fork();
 
