@@ -91,7 +91,7 @@ void launch_process(char **args)
 	pid = fork();
 	if (pid == 0)
 	{
-		if (execvp(args[0], args) == -1)
+		if (execve(args[0], args, (char *const *)environ) == -1)
 		{
 			perror("shell");
 		}
