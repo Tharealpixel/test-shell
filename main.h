@@ -9,4 +9,6 @@
 
 #define MAX_INPUT_LENGTH 1024
 
+char *read_line(void);
+
 #endif
