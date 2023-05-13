@@ -1,10 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/wait.h>
-
-#define MAX_INPUT_LENGTH 1024
+#include "main.h"
 
 void display_prompt()
 {
@@ -24,7 +18,7 @@ int main()
 			printf("\n");
 			break;
 		}
-		input[strcspn(input, "\n")] = '\0'; // remove newline character
+		input[strcspn(input, "\n")] = '\0';
 		pid_t pid = fork();
 		if (pid == -1)
 		{
@@ -33,7 +27,6 @@ int main()
 		}
 		else if (pid == 0)
 		{
-			// child process
 			if (execl(input, input, (char *)NULL) == -1)
 			{
 				perror("execl failed");
@@ -42,7 +35,6 @@ int main()
 		}
 		else
 		{
-			// parent process
 			wait(&status);
 			if (WIFEXITED(status))
 			{
