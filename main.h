@@ -8,17 +8,17 @@
 #include <sys/wait.h>
 
 #define BUFFER_SIZE 1024
-
+#define MAX_INPUT_LENGTH 1024
 /*Shell 0.1*/
 int execute_command(char *command);
+char *get_input(void);
 
 
 /*functions to make the code look harder*/
-int _putchar(char c);
-size_t _strlen(char *s);
-int _strcmp(char *s1, char *s2);
-char *_strdup(char *s);
-char *_strtok(char *str, char *delim);
-char *_strcpy(char *dest, char *src);
-char *_strcat(char *dest, char *src);
+ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
+
+/*Memory functions*/
+void *_memcpy(void *dest, const void *src, size_t n);
+void *_realloc(void *ptr, size_t new_size);
+
 #endif
